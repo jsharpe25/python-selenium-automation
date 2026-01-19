@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import when, then
-from time import sleep
+
 
 ACCOUNT_ICON = (By.CSS_SELECTOR, "[data-test='@web/AccountLink']")
 SIGN_IN_ICON = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
@@ -18,4 +18,3 @@ def verify_sign_in_form(context):
     actual_text = context.driver.find_element(*SIGN_IN_MESSAGE).text
     print(actual_text)
     assert expected_text in actual_text, f'Expected text {expected_text} not in actual text {actual_text}'
-    sleep(2)

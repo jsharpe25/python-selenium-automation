@@ -1,11 +1,6 @@
-from selenium.webdriver.common.by import By
-from behave import when, then
-
-SEARCH_RESULTS_TEXT = (By.XPATH, "//div[contains(@class,'styles_listingPageResultsCount')]")
+from behave import then
 
 
-@then('Search results for {expected_product} are shown')
-def verify_search_results(context, expected_product):
-    actual_text = context.driver.find_element(*SEARCH_RESULTS_TEXT).text
-    print(actual_text)
-    assert expected_product in actual_text, f'Expected text {expected_product} not in actual text {actual_text}'
+@then('Search results for {product} are shown')
+def steps_verify_search_results(context, product):
+    context.app.search_results_page.verify_search_results(product)

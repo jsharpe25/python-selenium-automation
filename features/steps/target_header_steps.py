@@ -1,23 +1,19 @@
 from selenium.webdriver.common.by import By
 from behave import when, then
-from time import sleep
 
-SEARCH_FIELD = (By.ID, 'search')
-SEARCH_ICON = (By.CSS_SELECTOR, '[data-test="@web/Search/SearchButton"]')
-CART_ICON = (By.CSS_SELECTOR, '[data-test="@web/CartIcon"]')
+
 HEADER_LINKS = (By.CSS_SELECTOR, '[data-test*="@web/GlobalHeader/UtilityHeader/"]')
 
 
 @when('Search for {product}')
-def search_product(context, product):
-    context.driver.find_element(*SEARCH_FIELD).send_keys(product)
-    context.driver.find_element(*SEARCH_ICON).click()
-    sleep(10)
+def step_search_product(context, product):
+    context.app.header.search_product(product)
 
 
 @when('Click on shopping cart icon')
-def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+def step_click_cart(context):
+    context.app.header.click_cart()
+
 
 @then('Verify {expected_amount} top header links are shown')
 def verify_top_links_shown(context, expected_amount):

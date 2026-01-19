@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, then
 
+
 STORYCARDS = (By.CSS_SELECTOR, "[class='sc-448837bd-1 ZtQGh storycard--text']")
 
 
