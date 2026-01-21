@@ -13,6 +13,6 @@ Feature: Tests Target cart
     And Click on Add to cart button
     And Store product name
     And Confirm Add to cart button
-    And Open cart page
+    And Click on View cart button
     Then Verify cart has 1 item(s)
     And Verify product in cart is correct

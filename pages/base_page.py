@@ -1,6 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from locators_target_ex import actual_text
+
+
 class Page:
     def __init__(self, driver):
         self.driver = driver
@@ -24,6 +27,9 @@ class Page:
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
+
+    def grab_text(self, *locator):
+        return self.driver.find_element(*locator).text
 
     def wait_until_element_present(self, *locator):
         self.driver.wait.until(
