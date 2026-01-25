@@ -9,6 +9,7 @@ def step_add_to_cart_button(context):
 @when('Store product name')
 def step_store_product_name(context):
     context.product_name = context.app.search_results_page.store_product_name()
+    print(f'Stored product name: {context.product_name}')
 
 
 @when('Confirm Add to cart button')

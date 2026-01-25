@@ -7,7 +7,6 @@ class Header(Page):
     SEARCH_ICON = (By.CSS_SELECTOR, '[data-test="@web/Search/SearchButton"]')
     CART_ICON = (By.CSS_SELECTOR, '[data-test="@web/CartIcon"]')
 
-
     def search_product(self, product):
         self.input_text(product, *self.SEARCH_FIELD)
         self.click(*self.SEARCH_ICON)

@@ -1,7 +1,6 @@
 from pages.base_page import Page
 from selenium.webdriver.common.by import By
 
-
 class SearchResultsPage(Page):
     SEARCH_RESULTS_TEXT = (By.XPATH, "//span[@class='h-text-bs h-display-flex h-flex-align-center h-text-grayDark']")
     ADD_CART_BTN = (By.CSS_SELECTOR, '[data-test="chooseOptionsButton"]')
@@ -17,7 +16,8 @@ class SearchResultsPage(Page):
 
     def store_product_name(self):
         self.wait_until_element_present(*self.SIDE_NAV_PRODUCT_NAME)
-        return self.grab_text(*self.SIDE_NAV_PRODUCT_NAME)
+        return self.grab_text(*self.SIDE_NAV_PRODUCT_NAME)[0:6]
+
 
     def confirm_cart_button(self):
         self.wait_until_clickable_click(*self.CONFIRM_CART_BTN)

@@ -1,4 +1,4 @@
-from behave import when, then
+from behave import given, when, then
 
 
 @when('Open Target sign in form')
@@ -9,3 +9,11 @@ def step_open_sign_in_form(context):
 @then('Verify sign in form opened')
 def step_verify_sign_in_form(context):
     context.app.sign_in_page.verify_sign_in_form()
+
+@given('Open sign in page')
+def step_open_sign_in_page(context):
+    context.app.sign_in_page.open_sign_in_page()
+
+@when('Click Terms link')
+def step_open_terms_link(context):
+    context.app.sign_in_page.open_terms_link()

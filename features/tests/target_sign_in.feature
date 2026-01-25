@@ -7,6 +7,16 @@ Feature: Tests Target sign in page
     Then Verify sign in form opened
 
 
+  Scenario: User is able to open Terms & Conditions from sign in page
+    Given Open sign in page
+    And Store original window
+    When Click Terms link
+    And Switch to new window
+    Then Verify Terms page opened
+    And Close current page
+    And Return to original window
+
+
 #Example Scenario Outline to varify error messages
 #  Scenario Outline: Login error shown for invalid login
 #    Given Open login page

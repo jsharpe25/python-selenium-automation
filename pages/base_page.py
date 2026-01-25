@@ -1,8 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
-from locators_target_ex import actual_text
-
+from time import sleep
 
 class Page:
     def __init__(self, driver):
@@ -30,6 +28,21 @@ class Page:
 
     def grab_text(self, *locator):
         return self.driver.find_element(*locator).text
+
+    def get_current_window_handle(self):
+        return self.driver.current_window_handle
+
+    def switch_to_new_window(self):
+        self.driver.wait.until(EC.new_window_is_opened)
+        all_windows = self.driver.window_handles
+        print('All windows: ', all_windows)
+        print('Switching to window: ', all_windows[1])
+        self.driver.switch_to.window(all_windows[1])
+
+    def switch_to_window_by_id(self, window_id):
+        print('Switching to window: ', window_id)
+        self.driver.switch_to.window(window_id)
+        sleep(2)
 
     def wait_until_element_present(self, *locator):
         self.driver.wait.until(
@@ -60,6 +73,9 @@ class Page:
             EC.url_contains(expected_partial_url),
             message=f'Expected {expected_partial_url} not in {self.driver.current_url}.'
         )
+
+    def close_page(self):
+        self.driver.close()
 
     def verify_partial_text(self, expected_partial_text, *locator):
         actual_text = self.find_element(*locator).text

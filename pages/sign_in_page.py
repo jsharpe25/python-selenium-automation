@@ -6,6 +6,7 @@ class SignInPage(Page):
     SIGN_IN_ICON = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
     SIGN_IN_MESSAGE = (By.XPATH, "//h1[text()='Sign in or create account']")
     sign_in_message = 'Sign in or create account'
+    TERMS_LINK = (By.CSS_SELECTOR, "[aria-label*='terms & conditions']")
 
     def open_sign_in_form(self):
         self.wait_until_clickable_click(*self.ACCOUNT_ICON)
@@ -14,3 +15,9 @@ class SignInPage(Page):
     def verify_sign_in_form(self):
         self.wait_until_element_present(*self.SIGN_IN_MESSAGE)
         self.verify_partial_text(self.sign_in_message, *self.SIGN_IN_MESSAGE)
+
+    def open_sign_in_page(self):
+        self.open_url('/orders?lnk=acct_nav_my_account')
+
+    def open_terms_link(self):
+        self.wait_until_clickable_click(*self.TERMS_LINK)
