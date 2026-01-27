@@ -25,3 +25,11 @@ def step_view_cart_button(context):
 @then('Search results for {product} are shown')
 def steps_verify_search_results(context, product):
     context.app.search_results_page.verify_search_results(product)
+
+@when('Hover favorites icon')
+def step_hover_fav_icon(context):
+    context.app.search_results_page.hover_fav_icon()
+
+@then('Favorites tooltip is shown')
+def step_verify_fav_tooltip(context):
+    context.app.search_results_page.verify_fav_tooltip()

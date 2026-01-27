@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 
 class Page:
@@ -43,6 +44,19 @@ class Page:
         print('Switching to window: ', window_id)
         self.driver.switch_to.window(window_id)
         sleep(2)
+
+    def hover_element(self, *locator):
+        element = self.find_element(*locator)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element)
+        actions.perform()
+
+    def scroll_and_hover_element(self, *locator):
+        element = self.find_element(*locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element)
+        actions.perform()
 
     def wait_until_element_present(self, *locator):
         self.driver.wait.until(
