@@ -1,6 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+from support.logger import logger
 from time import sleep
 
 class Page:
@@ -10,24 +11,30 @@ class Page:
         self.base_url = 'https://www.target.com' # easy to update
 
     def open_url(self, end_url=''):
+        logger.info(f'Opening URL: {self.base_url}{end_url}')
         self.driver.get(f'{self.base_url}{end_url}')
 
     def get_current_url(self):
         return self.driver.current_url
 
     def find_element(self, *locator):
+        logger.info(f'Searching for element by {locator}')
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
+        logger.info(f'Searching for elements by {locator}')
         return self.driver.find_elements(*locator)
 
     def click(self, *locator):
+        logger.info(f'Clicking on element by {locator}')
         self.driver.find_element(*locator).click()
 
     def input_text(self, text, *locator):
+        logger.info(f'Inputting text {text} to {locator}')
         self.driver.find_element(*locator).send_keys(text)
 
     def grab_text(self, *locator):
+        logger.info(f'Grabbing text from {locator}')
         return self.driver.find_element(*locator).text
 
     def get_current_window_handle(self):

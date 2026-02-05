@@ -7,6 +7,7 @@ Feature: Tests Target cart
     Then Verify empty cart message
 
 
+  @smoke
   Scenario: User can add product to shopping cart
     Given Open Target main page
     When Search for cereal

@@ -1,8 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
-# from selenium.webdriver.chrome.options import Options
+from support.logger import logger
 
+# from selenium.webdriver.chrome.options import Options
+# behave -f allure_behave.formatter:AllureFormatter -o test_results/ --tags=smoke
 
 def browser_init(context, scenario_name):
     """
@@ -46,15 +48,18 @@ def browser_init(context, scenario_name):
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
+    logger.info(f'\nStarted scenario: {scenario.name}')
     browser_init(context, scenario.name)
 
 
 def before_step(context, step):
+    logger.info(f'Started step: {step}')
     print('\nStarted step: ', step)
 
 
 def after_step(context, step):
     if step.status == 'failed':
+        logger.error(f'Step failed: {step}')
         print('\nStep failed: ', step)
 
 
