@@ -1,31 +1,31 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from time import sleep
+
 
 # Start Chrome browser:
 driver = webdriver.Chrome()
 driver.get('https://www.amazon.com/')
 
+# Use $$() to test in Chrome DevTools
 
-# CSS Selectors, by id #
+# CSS Selectors, by id, #
 driver.find_element(By.CSS_SELECTOR, '#twotabsearchtextbox')  # same as => driver.find_element(By.ID, 'twotabsearchtextbox')
 driver.find_element(By.CSS_SELECTOR, 'input#twotabsearchtextbox')
 
 # by class, .
 driver.find_element(By.CSS_SELECTOR, ".nav-progressive-attribute")
-# multiple classes
+# multiple classes (multiple classes are separated by spaces in DevTools)
 driver.find_element(By.CSS_SELECTOR, ".nav-progressive-attribute.nav-input")
 # classes + tag
 driver.find_element(By.CSS_SELECTOR, "input.nav-progressive-attribute.nav-input")
 driver.find_element(By.CSS_SELECTOR, "input#twotabsearchtextbox.nav-progressive-attribute.nav-input")
 
-# Atrributes []
+# by atrributes, []
 driver.find_element(By.CSS_SELECTOR, "[role='searchbox']")
 driver.find_element(By.CSS_SELECTOR, "[role='searchbox'][type='text'][...][...]")
 # attr + tag
 driver.find_element(By.CSS_SELECTOR, "input[role='searchbox']")
-
-# attr + class + tag  (Recommended order: tag + id + class + attr)
+# attr + tag + class (Recommended order: tag + id + class + attr)
 driver.find_element(By.CSS_SELECTOR, "input.nav-input[role='searchbox']")
 driver.find_element(By.CSS_SELECTOR, ".nav-input[role='searchbox']")
 driver.find_element(By.CSS_SELECTOR, "#id.nav-input[role='searchbox']")
@@ -34,3 +34,6 @@ driver.find_element(By.CSS_SELECTOR, "#id.nav-input[role='searchbox']")
 driver.find_element(By.CSS_SELECTOR, "[href*='/books-used-books-textbooks/']")
 driver.find_element(By.CSS_SELECTOR, "[class*='styles_ndsHeading']")
 driver.find_element(By.CSS_SELECTOR, "[class*='styles_ndsHeading'][class*='styles_fontSize']")
+
+# parent attributes, [] [] (include a space between attributes)
+driver.find_element(By.CSS_SELECTOR, '[data-sentry-component="ScrollableFilters"] [data-test-id="filter-price-dropdown"]')

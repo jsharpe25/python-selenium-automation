@@ -3,6 +3,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
 from support.logger import logger
 
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service
 # from selenium.webdriver.chrome.options import Options
 # behave -f allure_behave.formatter:AllureFormatter -o test_results/ --tags=smoke
 
@@ -11,6 +13,11 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     context.driver = webdriver.Chrome()
+
+    ### Alternate CHROME ###
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
     ### FIREFOX AND SAFARI ###
     # context.driver = webdriver.Firefox()

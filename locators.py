@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from time import sleep
+
+# Use $x() to test in Chrome DevTools
 
 # get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
@@ -20,7 +21,7 @@ driver.get('https://www.amazon.com/')
 driver.find_element(By.ID, 'twotabsearchtextbox')
 driver.find_element(By.ID, 'searchDropdownBox')
 
-# By XPATH
+# By XPATH (//tag + [@attribute])
 driver.find_element(By.XPATH, "//input[@aria-label='Search Amazon']")
 driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribute']")
 
@@ -28,8 +29,8 @@ driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribu
 driver.find_element(By.XPATH, "//*[@placeholder='Search Amazon']")
 
 # By many attributes
-driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribute'  and @type='text']")
-driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribute'  and @type='text' and @otherarr='value']")
+driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribute' and @type='text']")
+driver.find_element(By.XPATH, "//input[@class='nav-input nav-progressive-attribute' and @type='text' and @otherarr='value']")
 
 # By text
 driver.find_element(By.XPATH, "//a[text()='Holiday Gifts']")
