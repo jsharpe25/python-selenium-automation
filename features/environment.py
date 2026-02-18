@@ -14,11 +14,6 @@ def browser_init(context, scenario_name):
     """
     context.driver = webdriver.Chrome()
 
-    ### Alternate CHROME ###
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
-
     ### FIREFOX AND SAFARI ###
     # context.driver = webdriver.Firefox()
     # context.driver = webdriver.Safari()
@@ -34,7 +29,6 @@ def browser_init(context, scenario_name):
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
     # bs_user = ''
     # bs_key = ''
-    #
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     # options = Options()
     # bstack_options = {
@@ -42,7 +36,7 @@ def browser_init(context, scenario_name):
     #     "osVersion" : "11",
     #     "browserVersion" : "latest",
     #     'browserName': 'Edge',
-    #     'sessionName': scenario_name,
+    #     'sessionName': 'scenario_name',
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
