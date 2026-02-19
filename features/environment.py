@@ -27,16 +27,16 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user = ''
-    # bs_key = ''
+    # bs_user = ''  # Add your user key
+    # bs_key = ''  # Add your pass key
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     # options = Options()
     # bstack_options = {
-    #     "os" : "Windows",
-    #     "osVersion" : "11",
-    #     "browserVersion" : "latest",
-    #     'browserName': 'Edge',
-    #     'sessionName': 'scenario_name',
+    #     'os': 'Windows',  # 'OS X' for macOS, 'Windows' for Windows OS
+    #     'osVersion': '11',  # Specify the version you want to use
+    #     'browserVersion': 'latest', # 'latest' uses newest stable version
+    #     'browserName': 'Chrome',
+    #     'sessionName': scenario_name # Automatically pulls name from Behave scenario
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
