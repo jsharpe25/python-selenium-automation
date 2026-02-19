@@ -2,11 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
 from support.logger import logger
+from selenium.webdriver.chrome.options import Options
 
-# from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.service import Service
-# from selenium.webdriver.chrome.options import Options
-# behave -f allure_behave.formatter:AllureFormatter -o test_results/ --tags=smoke
+### RUN AN ALLURE REPORT ###
+# All tests, use command line: behave -f allure_behave.formatter:AllureFormatter -o test_results/features/tests
+# Tagged tests, use command line: behave -f allure_behave.formatter:AllureFormatter -o test_results/ --tags=smoke
 
 def browser_init(context, scenario_name):
     """
