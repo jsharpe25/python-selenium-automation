@@ -4,7 +4,8 @@ from app.application import Application
 from support.logger import logger
 from selenium.webdriver.chrome.options import Options
 
-### RUN AN ALLURE REPORT ###
+### RUN ALLURE REPORT ###
+# Install allure behave (first time only), use command line: pip install allure-behave
 # All tests, use command line: behave -f allure_behave.formatter:AllureFormatter -o test_results/features/tests
 # Tagged tests, use command line: behave -f allure_behave.formatter:AllureFormatter -o test_results/ --tags=smoke
 
@@ -65,4 +66,5 @@ def after_step(context, step):
 
 
 def after_scenario(context, feature):
-    context.driver.quit()
+    if hasattr(context, "driver"):
+        context.driver.quit()
