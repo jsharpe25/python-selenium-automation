@@ -13,18 +13,12 @@ def browser_init(context, scenario_name):
     """
     :param context: Behave context
     """
+    ### CHROME ###
     context.driver = webdriver.Chrome()
 
     ### FIREFOX AND SAFARI ###
     # context.driver = webdriver.Firefox()
     # context.driver = webdriver.Safari()
-
-    ### HEADLESS MODE ####
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('headless')
-    # context.driver = webdriver.Chrome(
-    #     options=options
-    # )
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
@@ -41,6 +35,17 @@ def browser_init(context, scenario_name):
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
+
+    ### MOBILE EMULATION ###
+    # mobile_emulation = {"deviceName": "iPhone XR"}
+    # options = Options()
+    # options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # context.driver = webdriver.Chrome(options=options)
+
+    ### HEADLESS MODE ####
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # context.driver = webdriver.Chrome(options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
