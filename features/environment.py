@@ -38,7 +38,7 @@ def browser_init(context, scenario_name):
     #     'sessionName': scenario_name # Automatically pulls name from Behave scenario
     # }
     # options.set_capability('bstack:options', bstack_options)
-    # prefs = {"profile.default_content_setting_values.notifications": 2} # Removes notifications
+    # prefs = {"profile.default_content_setting_values.notifications": 2} # Disables notifications
     # options.add_experimental_option("prefs", prefs)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
