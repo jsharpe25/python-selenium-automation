@@ -38,6 +38,8 @@ def browser_init(context, scenario_name):
     #     'sessionName': scenario_name # Automatically pulls name from Behave scenario
     # }
     # options.set_capability('bstack:options', bstack_options)
+    # prefs = {"profile.default_content_setting_values.notifications": 2} # Removes notifications
+    # options.add_experimental_option("prefs", prefs)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
     ### BROWSERSTACK MOBILE ###
@@ -48,14 +50,15 @@ def browser_init(context, scenario_name):
     # client_config = ClientConfig(remote_server_addr="https://hub-cloud.browserstack.com/wd/hub", username=bs_user, password=bs_key)
     # remote_connection = RemoteConnection(client_config=client_config)
     # bstack_options = {
-    #     "osVersion": "16.0",
+    #     'osVersion': '16.0',
     #     'deviceName' : 'Samsung Galaxy S24',
     #     'browserName': 'Chrome',
-    #     "projectName": "Project Title",
-    #     "buildName": "software_build",
+    #     'projectName': 'Project Title',
+    #     'buildName': 'software_build',
     #     'sessionName': scenario_name,
     # }
     # options = Options()
+    # options.add_argument('--disable-notifications')
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=remote_connection, options=options)
     # context.is_mobile = True
