@@ -38,7 +38,7 @@ def browser_init(context, scenario_name):
     #     'sessionName': scenario_name # Automatically pulls name from Behave scenario
     # }
     # options.set_capability('bstack:options', bstack_options)
-    # prefs = {"profile.default_content_setting_values.notifications": 2} # Disables notifications
+    # prefs = {"profile.default_content_setting_values.notifications": 2} # Disables desktop Chrome notifications (no-op for other browsers)
     # options.add_experimental_option("prefs", prefs)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
@@ -58,7 +58,7 @@ def browser_init(context, scenario_name):
     #     'sessionName': scenario_name,
     # }
     # options = Options()
-    # options.add_argument('--disable-notifications')
+    # options.add_argument('--disable-notifications') # Disables mobile Chrome notifications (no-op for other browsers)
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=remote_connection, options=options)
     # context.is_mobile = True
